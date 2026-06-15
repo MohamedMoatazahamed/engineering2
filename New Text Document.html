@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>المهندسة زينب ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Cairo',sans-serif;scroll-behavior:smooth}
+body{background:#030712;color:white;overflow-x:hidden}
+
+#particles{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:hidden}
+.particle{position:absolute;border-radius:50%;animation:float linear infinite;opacity:0}
+@keyframes float{0%{transform:translateY(100vh) scale(0);opacity:0}10%{opacity:.6}90%{opacity:.3}100%{transform:translateY(-100px) scale(1.5);opacity:0}}
+
+.hero{
+  position:relative;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  overflow:hidden;
+  background:radial-gradient(ellipse at 50% 0%, #0c1f3f 0%, #030712 70%);
+}
+.hero-bg{
+  position:absolute;inset:0;
+  background:url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1600&q=80') center/cover;
+  opacity:.12;
+}
+.hero-glow{
+  position:absolute;
+  width:600px;height:600px;
+  background:radial-gradient(circle, rgba(0,200,255,.15) 0%, transparent 70%);
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  animation:pulse 4s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.8}50%{transform:translate(-50%,-50%) scale(1.2);opacity:.4}}
+.hero-content{position:relative;z-index:2}
+.hero-badge{
+  display:inline-block;
+  background:rgba(0,200,255,.1);
+  border:1px solid rgba(0,200,255,.3);
+  color:#00c8ff;
+  padding:8px 24px;
+  border-radius:50px;
+  font-size:.9rem;
+  letter-spacing:3px;
+  margin-bottom:30px;
+  animation:fadeDown .8s ease both;
+}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+.hero h1{
+  font-size:clamp(2.5rem,6vw,5.5rem);
+  font-weight:900;
+  line-height:1.2;
+  animation:fadeUp 1s .2s ease both;
+  background:linear-gradient(135deg,#fff 0%,#00c8ff 50%,#00ff9d 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+.hero-sub{
+  font-size:clamp(1rem,2.5vw,1.4rem);
+  color:#94a3b8;
+  margin-top:16px;
+  animation:fadeUp 1s .4s ease both;
+}
+.hero-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  margin-top:40px;
+  padding:16px 44px;
+  background:linear-gradient(135deg,#00c8ff,#00ff9d);
+  color:#030712;
+  font-weight:700;
+  font-size:1.1rem;
+  border-radius:50px;
+  text-decoration:none;
+  transition:.3s;
+  animation:fadeUp 1s .6s ease both;
+}
+.hero-btn:hover{transform:translateY(-3px);box-shadow:0 20px 40px rgba(0,200,255,.3)}
+.scroll-hint{
+  position:absolute;bottom:40px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  color:#475569;font-size:.8rem;
+  animation:bounce 2s infinite;
+}
+@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+.scroll-arrow{width:24px;height:24px;border-right:2px solid #475569;border-bottom:2px solid #475569;transform:rotate(45deg)}
+
+section{padding:100px 8%;position:relative;z-index:1}
+.section-label{
+  text-align:center;
+  color:#00c8ff;
+  font-size:.8rem;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  margin-bottom:16px;
+  opacity:.8;
+}
+.section-title{
+  font-size:clamp(1.8rem,4vw,3rem);
+  font-weight:900;
+  text-align:center;
+  margin-bottom:16px;
+  background:linear-gradient(135deg,#fff,#94a3b8);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.section-divider{
+  width:60px;height:3px;
+  background:linear-gradient(90deg,#00c8ff,#00ff9d);
+  margin:0 auto 60px;
+  border-radius:2px;
+}
+
+.story-box{
+  max-width:860px;margin:0 auto;
+  background:linear-gradient(135deg,rgba(0,200,255,.04),rgba(0,255,157,.04));
+  border:1px solid rgba(0,200,255,.12);
+  border-radius:24px;
+  padding:50px;
+  position:relative;overflow:hidden;
+}
+.story-box::before{
+  content:'';position:absolute;top:0;right:0;
+  width:200px;height:200px;
+  background:radial-gradient(circle,rgba(0,200,255,.08) 0%,transparent 70%);
+}
+.story-text{font-size:1.15rem;line-height:2.4;color:#cbd5e1}
+.story-text p{margin-bottom:20px}
+.story-text p:last-child{margin-bottom:0}
+.quote-mark{font-size:5rem;color:rgba(0,200,255,.15);line-height:.5;font-family:Georgia,serif}
+
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:24px;max-width:1000px;margin:0 auto;
+}
+.stat-card{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:20px;
+  padding:40px 30px;
+  text-align:center;
+  transition:.4s;
+  position:relative;overflow:hidden;
+}
+.stat-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(0,200,255,.05),transparent);
+  opacity:0;transition:.4s;
+}
+.stat-card:hover{transform:translateY(-8px);border-color:rgba(0,200,255,.25)}
+.stat-card:hover::before{opacity:1}
+.stat-number{
+  font-size:3.5rem;font-weight:900;
+  background:linear-gradient(135deg,#00c8ff,#00ff9d);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  display:block;
+  margin-bottom:12px;
+}
+.stat-label{color:#64748b;font-size:1rem}
+
+.timeline-wrap{max-width:860px;margin:0 auto;position:relative}
+.timeline-wrap::before{
+  content:'';
+  position:absolute;
+  right:22px;top:0;bottom:0;width:2px;
+  background:linear-gradient(to bottom,#00c8ff,#00ff9d,rgba(0,200,255,0));
+}
+.tl-item{
+  display:flex;gap:50px;
+  margin-bottom:40px;
+  align-items:flex-start;
+}
+.tl-dot{
+  flex-shrink:0;
+  width:48px;height:48px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#00c8ff,#00ff9d);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:900;font-size:.85rem;color:#030712;
+  position:relative;z-index:1;
+  box-shadow:0 0 20px rgba(0,200,255,.4);
+}
+.tl-body{
+  flex:1;
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:16px;
+  padding:28px 32px;
+  transition:.3s;
+}
+.tl-body:hover{border-color:rgba(0,200,255,.2);background:rgba(0,200,255,.03)}
+.tl-year{color:#00c8ff;font-size:.85rem;font-weight:600;margin-bottom:8px;letter-spacing:2px}
+.tl-title{font-size:1.2rem;font-weight:700;margin-bottom:10px;color:#f1f5f9}
+.tl-text{color:#64748b;line-height:2;font-size:1rem}
+.tl-star{background:linear-gradient(135deg,rgba(255,215,0,.15),rgba(255,165,0,.05));border-color:rgba(255,215,0,.25)}
+
+.thank-section{
+  background:radial-gradient(ellipse at 50% 50%, rgba(0,200,255,.05) 0%, transparent 70%);
+}
+.thank-box{
+  max-width:860px;margin:0 auto;
+  background:rgba(0,200,255,.03);
+  border:1px solid rgba(0,200,255,.12);
+  border-radius:24px;
+  padding:50px;
+  position:relative;
+}
+.thank-text{font-size:1.15rem;line-height:2.6;color:#cbd5e1}
+.thank-text p{margin-bottom:24px}
+.thank-text .hl{color:#00c8ff;font-weight:700}
+.thank-text .hl-gold{color:#ffd700;font-weight:700}
+
+.duaa-box{
+  max-width:760px;margin:0 auto;
+  text-align:center;
+  background:rgba(255,215,0,.04);
+  border:1px solid rgba(255,215,0,.15);
+  border-radius:24px;
+  padding:60px 50px;
+}
+.duaa-icon{font-size:3rem;margin-bottom:24px;opacity:.7}
+.duaa-text{font-size:1.2rem;line-height:2.8;color:#e2d48b}
+
+.final-section{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;align-items:center;
+  text-align:center;
+  background:radial-gradient(ellipse at 50% 100%, rgba(0,200,255,.1) 0%, #030712 60%);
+  position:relative;overflow:hidden;
+}
+.final-ring{
+  position:absolute;
+  border-radius:50%;
+  border:1px solid rgba(0,200,255,.08);
+  animation:expand 4s ease-out infinite;
+}
+@keyframes expand{0%{transform:scale(.5);opacity:.8}100%{transform:scale(2.5);opacity:0}}
+.final-h{
+  font-size:clamp(2.5rem,6vw,6rem);
+  font-weight:900;
+  background:linear-gradient(135deg,#00c8ff,#fff,#00ff9d);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  background-clip:text;
+  margin-bottom:24px;
+}
+.final-name{
+  font-size:1.1rem;color:#475569;
+  line-height:2;
+  margin-top:32px;
+}
+.final-name strong{color:#94a3b8}
+.heart{
+  font-size:4rem;
+  display:block;margin:20px auto;
+  animation:heartbeat 1.5s ease-in-out infinite;
+}
+@keyframes heartbeat{0%,100%{transform:scale(1)}15%{transform:scale(1.2)}30%{transform:scale(1)}}
+</style>
+</head>
+<body>
+
+<div id="particles"></div>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-badge">مدرسة السويدي للتكنولوجيا التطبيقية</div>
+    <h1>من سوهاج<br>إلى التخرج</h1>
+    <p class="hero-sub">رحلة ثلاث سنوات... صنعت إنساناً جديداً</p>
+    <a href="#story" class="hero-btn">▼ ابدأ الرحلة</a>
+  </div>
+  <div class="scroll-hint">
+    <span>مرر للأسفل</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<section id="story">
+  <p class="section-label">✦ كيف بدأت كل شيء</p>
+  <h2 class="section-title">البداية</h2>
+  <div class="section-divider"></div>
+  <div class="story-box">
+    <div class="quote-mark">"</div>
+    <div class="story-text">
+      <p>جئت من سوهاج وأنا أحمل في قلبي أملاً أكبر من حقيبة السفر، وخوفاً لا يُرى لكن يُحسّ. كنت أعرف أنني مقبل على عالم جديد بالكامل، ولا أملك خريطة واضحة للطريق.</p>
+      <p>دخلت مدرسة السويدي للتكنولوجيا التطبيقية لأول مرة، فوجدت نفسي أمام شاشات وأكواد وأسماء لا أفهم منها شيئاً. لكنني أخذت قراراً بسيطاً: لن أستسلم.</p>
+      <p>يوماً بعد يوم، تحولت الكلمات الغريبة إلى مفاهيم مألوفة، وتحولت الأكواد إلى مشاريع، وتحولت المشاريع إلى مهارات. تعلمت أن أفكر بطريقة مختلفة، أن أبحث عن الحلول بدل الاستسلام للمشكلات.</p>
+      <p>وفي لحظات كادت فيها الرحلة تتوقف، وجدت من يمد يده ويقول: «أكمل».</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <p class="section-label">✦ بالأرقام</p>
+  <h2 class="section-title">ثلاث سنوات في أرقام</h2>
+  <div class="section-divider"></div>
+  <div class="stats-grid">
+    <div class="stat-card">
+      <span class="stat-number">3</span>
+      <div class="stat-label">سنوات من التعلم والنمو</div>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number">+100</span>
+      <div class="stat-label">مشروع وتجربة عملية</div>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number">+1000</span>
+      <div class="stat-label">ساعة دراسة وتدريب</div>
+    </div>
+    <div class="stat-card">
+      <span class="stat-number">∞</span>
+      <div class="stat-label">أحلام للمستقبل</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <p class="section-label">✦ محطات الرحلة</p>
+  <h2 class="section-title">ثلاث سنوات محطة بمحطة</h2>
+  <div class="section-divider"></div>
+  <div class="timeline-wrap">
+    <div class="tl-item">
+      <div style="display:flex;flex-direction:column;align-items:center">
+        <div class="tl-dot">١</div>
+      </div>
+      <div class="tl-body">
+        <div class="tl-year">السنة الأولى · 2023</div>
+        <div class="tl-title">الاكتشاف والدهشة</div>
+        <div class="tl-text">أول مرة أرى كوداً على الشاشة وأحاول أن أفهم ما يحدث. كانت السنة الأصعب والأجمل في نفس الوقت. تعلمت أساسيات البرمجة، وعرفت أن هذا العالم لا نهاية له، وأن الفضول هو أفضل أداة في يد المبتدئ.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div style="display:flex;flex-direction:column;align-items:center">
+        <div class="tl-dot">٢</div>
+      </div>
+      <div class="tl-body">
+        <div class="tl-year">السنة الثانية · 2024</div>
+        <div class="tl-title">البناء والثقة</div>
+        <div class="tl-text">بدأت أبني مشاريع حقيقية وأشعر أن يدي صارت تعرف ما تفعله. ارتفعت ثقتي بنفسي، وبدأت أساعد زملائي وأشرح لهم ما تعلمته. السنة التي حولت الهواية إلى مهارة.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div style="display:flex;flex-direction:column;align-items:center">
+        <div class="tl-dot">٣</div>
+      </div>
+      <div class="tl-body">
+        <div class="tl-year">السنة الثالثة · 2025</div>
+        <div class="tl-title">النضج والاستعداد</div>
+        <div class="tl-text">السنة الأصعب مادياً، لكن الأقوى إنسانياً. تعلمت فيها معنى المسؤولية والالتزام والإصرار. وكانت هذه السنة بالذات هي التي شهدت أجمل لحظة في رحلتي كلها.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div style="display:flex;flex-direction:column;align-items:center">
+        <div class="tl-dot" style="background:linear-gradient(135deg,#ffd700,#ff8c00);box-shadow:0 0 20px rgba(255,215,0,.4)">⭐</div>
+      </div>
+      <div class="tl-body tl-star">
+        <div class="tl-year" style="color:#ffd700">المحطة التي لن أنساها أبداً</div>
+        <div class="tl-title" style="color:#fef3c7">يد مدّت في أصعب اللحظات</div>
+        <div class="tl-text" style="color:#92400e">حين كاد كل شيء يقف، قررت المهندسة زينب أن تتكفل بمصروفات السنة الثالثة بأكملها. لم تكن مجرد مساعدة مادية، بل كانت رسالة ثقة غيّرت كل شيء. لحظة تكفي لتبقى في القلب إلى الأبد.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="thank-section" id="thank">
+  <p class="section-label">✦ من القلب مباشرة</p>
+  <h2 class="section-title">رسالة شكر</h2>
+  <div class="section-divider"></div>
+  <div class="thank-box">
+    <div class="thank-text">
+      <p>مهندسة <span class="hl">زينب</span>...</p>
+      <p>عندما أحاول أن أجد كلمات تصف ما أشعر به، أجد أن اللغة تضيق عن المعنى. فبعض المشاعر أكبر من أي كلام.</p>
+      <p>حين تكفلتِ بمصروفات السنة الثالثة، لم تعلمي حينها أنكِ لم تدفعي مالاً فحسب، بل <span class="hl">دفعتِ رحلة</span>. دفعتِ مستقبلاً. دفعتِ حلماً كان على وشك أن ينطفئ.</p>
+      <p>شعرت في تلك اللحظة أن أحداً ما يؤمن بي وبقدرتي على النجاح أكثر مما آمنت أنا بنفسي في تلك اللحظة. وهذا وحده كان كافياً ليعيد إليّ كل الطاقة والعزيمة.</p>
+      <p>تعلمت خلال هذه السنوات الثلاث أن الكود الجيد يُبنى سطراً سطراً، والإنسان الجيد يُبنى موقفاً موقفاً. وأنتِ واحدة من أهم المواقف في قصتي.</p>
+      <p>واليوم، وأنا أقف على عتبة التخرج، أريدك أن تعرفي أن <span class="hl-gold">اسمكِ سيظل محفوراً في أول فصل من قصتي المهنية</span>.</p>
+      <p>شكراً على دعمكِ. شكراً على ثقتكِ. شكراً لأنكِ اخترتِ أن تكوني سبباً في الخير.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <p class="section-label">✦ دعاء من القلب</p>
+  <h2 class="section-title">اللهم اجزِها خيراً</h2>
+  <div class="section-divider"></div>
+  <div class="duaa-box">
+    <div class="duaa-icon">🤲</div>
+    <div class="duaa-text">
+      اللهم اجزِ المهندسة زينب خير الجزاء<br>
+      ووسّع لها في رزقها وبارك في عملها<br>
+      واحفظها في صحتها وأهلها ومن تحبّ<br>
+      واجعل كل طالب أعانته في ميزان حسناتها<br>
+      وكل علم زرعته نوراً يمشي بين يديها<br><br>
+      <strong style="color:#fef3c7">آمين يا رب العالمين</strong>
+    </div>
+  </div>
+</section>
+
+<section class="final-section">
+  <div class="final-ring" style="width:300px;height:300px;top:50%;left:50%;transform:translate(-50%,-50%)"></div>
+  <div class="final-ring" style="width:500px;height:500px;top:50%;left:50%;transform:translate(-50%,-50%);animation-delay:1s"></div>
+  <div class="final-ring" style="width:700px;height:700px;top:50%;left:50%;transform:translate(-50%,-50%);animation-delay:2s"></div>
+  <div style="position:relative;z-index:2;text-align:center">
+    <span class="heart">❤️</span>
+    <div class="final-h">شكراً<br>مهندسة زينب</div>
+    <p style="color:#00c8ff;font-size:1.1rem;margin-bottom:32px">انتهت الرحلة... وبدأ الأثر</p>
+    <div class="final-name">
+      <strong>محمد معتز</strong><br>
+      خريج مدرسة السويدي للتكنولوجيا التطبيقية
+    </div>
+  </div>
+</section>
+
+<script>
+const pc = document.getElementById('particles');
+for(let i=0;i<30;i++){
+  const p = document.createElement('div');
+  p.className='particle';
+  const s = Math.random()*6+3;
+  p.style.cssText=`
+    width:${s}px;height:${s}px;
+    left:${Math.random()*100}%;
+    background:${Math.random()>.5?'#00c8ff':'#00ff9d'};
+    animation-duration:${Math.random()*15+10}s;
+    animation-delay:${Math.random()*10}s;
+    opacity:.4;
+  `;
+  pc.appendChild(p);
+}
+</script>
+</body>
+</html>
